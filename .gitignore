@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Project specific
+# Assuming yolo_share is outside, but just in case
+yolo_share/
+runs/
+
