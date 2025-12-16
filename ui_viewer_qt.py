@@ -16,7 +16,9 @@ from PyQt6.QtGui import QImage, QPixmap, QFont
 # ==========================================
 
 # 패널 PC에서 접근할 공유 폴더 경로
-SHARE_DIR = Path(r"C:\yolo_share")
+# 로컬 PC: C:\yolo_share
+# 패널 PC (네트워크): \\192.168.0.55\yolo_share
+SHARE_DIR = Path(r"\\192.168.0.55\yolo_share")
 
 ORIGINAL_PATH = SHARE_DIR / "original.jpg"
 RESULT_PATH = SHARE_DIR / "result.jpg"
