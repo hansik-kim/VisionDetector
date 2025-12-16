@@ -177,17 +177,27 @@ class VisionViewer(QMainWindow):
         if not self.is_running:
             return
 
+        # 디버깅용: 경로 확인 (100번 호출마다 한 번씩만 출력하여 로그 폭주 방지)
+        if not hasattr(self, 'debug_cnt'): self.debug_cnt = 0
+        self.debug_cnt += 1
+        if self.debug_cnt % 50 == 0:
+             print(f"[DEBUG] Checking path: {ORIGINAL_PATH} / Exists: {os.path.exists(ORIGINAL_PATH)}")
+
         # 1. 원본 이미지
         try:
             if os.path.exists(ORIGINAL_PATH):
                 mtime = os.path.getmtime(ORIGINAL_PATH)
                 if mtime > self.last_mtime_orig:
+                    # print(f"[INFO] New original image detected. Reading...")
                     pixmap = self.read_image_qt(ORIGINAL_PATH)
                     if pixmap:
                         self.update_label_image(self.view_orig, pixmap)
                         self.last_mtime_orig = mtime
-        except Exception:
-            pass
+                    else:
+                        print(f"[WARN] Failed to load original image.")
+        except Exception as e:
+            print(f"[ERROR] Original Update Error: {e}")
+
 
         # 2. 결과 이미지
         try:
