@@ -13,7 +13,7 @@ from ultralytics import YOLO
 MODEL_PATH = r"C:\Project\VisionDetector\Dataset\onion.v3i.yolov8\runs\detect\train5\weights\best.pt"
 
 # 2) Basler 카메라 IP (지금 알려준 값)
-CAMERA_IP = "169.254.159.76"
+CAMERA_IP = "192.168.10.2"
 
 # 3) IPC에서 이미지를 저장할 공유 폴더
 #    이 폴더를 나중에 UIPC에서 네트워크 드라이브로 매핑(Z: 등)
